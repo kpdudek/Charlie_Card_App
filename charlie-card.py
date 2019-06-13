@@ -16,6 +16,7 @@ def print_info():
    print('-r : remove a fare')
    print('-a : # add specified value')
    print('-d : Diplay current balance')
+   print('-s : Diplay usage statistics')
 
 def get_data():
    # Get the charlie card value from the text file
