@@ -1,0 +1,27 @@
+Log File for Charlie Card Balance APP
+
+2019/06/11 | 05:27:28 PM, d
+2019/06/11 | 05:27:30 PM, d
+2019/06/11 | 05:27:30 PM, d
+2019/06/11 | 05:27:31 PM, d
+2019/06/11 | 05:27:32 PM, r
+2019/06/11 | 05:27:36 PM, a 5.0
+2019/06/11 | 05:27:43 PM, e15.0
+
+2019/06/12 | 09:51:25 AM, error: no arguments
+2019/06/12 | 09:51:31 AM, error: no arguments
+2019/06/12 | 09:51:33 AM, error: no arguments
+2019/06/12 | 09:53:19 AM, s
+2019/06/12 | 09:53:57 AM, r
+2019/06/12 | 09:53:58 AM, r
+2019/06/12 | 09:54:00 AM, r
+2019/06/12 | 09:54:00 AM, r
+2019/06/12 | 09:54:01 AM, r
+2019/06/12 | 09:54:02 AM, r
+2019/06/12 | 09:54:02 AM, error: insufficient balance
+2019/06/12 | 09:54:04 AM, error: insufficient balance
+2019/06/12 | 09:54:05 AM, error: insufficient balance
+2019/06/12 | 09:54:06 AM, error: insufficient balance
+2019/06/12 | 05:27:39 PM, s
+2019/06/12 | 08:39:40 PM, error: no arguments
+2019/06/12 | 08:39:45 PM, s
