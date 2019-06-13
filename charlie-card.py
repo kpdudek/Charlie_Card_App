@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import os, sys, getopt, datetime
+import os,sys,getopt,datetime,json
 
 # Write val to the charlie card text file
 # Val must be a float
