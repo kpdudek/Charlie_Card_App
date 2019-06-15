@@ -9,8 +9,12 @@ vals = []
 def main():
     for i in range(0,5):
         d = data()
+        d.date = i
+        d.val = i**2
         vals.append(d)
-    print(vals)
+    
+    for j in range(0,5):
+        print((vals[j].date,vals[j].val))
 
 if __name__ == "__main__":
    main()
