@@ -83,7 +83,7 @@ def main(argv):
     date_time = get_date_time()
 
     # Get the charlie cards balance from the text file
-    balance,info = get_data()
+    cc_info = get_data()
     print("Last accessed -- {}".format(info))
 
     # Try to get the command line arguments
