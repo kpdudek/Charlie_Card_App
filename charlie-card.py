@@ -83,8 +83,8 @@ def main(argv):
     date_time = get_date_time()
 
     # Get the charlie cards balance from the text file
-    cc_info = get_data()
-    print("Last accessed -- {}".format(date_time))
+    balance,info = get_data()
+    print("Last accessed -- {}".format(info))
 
     # Try to get the command line arguments
     try:
@@ -105,6 +105,7 @@ def main(argv):
             print_info()
             sys.exit()
             action = 'h'
+            write_to_file(balance,date_time)
 
         # Leaving the opt in sytanx in case long arguments are added later
         elif opt in ("-r"):
@@ -130,15 +131,17 @@ def main(argv):
 
         elif opt in ("-d"):
             print_balance(balance)
+            write_to_file(balance,date_time)
             action = 'd'
 
         elif opt in ("-e"):
-            write_to_file(float(arg),info)
+            write_to_file(float(arg),date_time)
             action = 'e' + '' + arg
 
         elif opt in ("-s"):
             summarize_log()
             action = 's'
+            write_to_file(balance,date_time)
 
     create_log_entry(date_time, action)
 
