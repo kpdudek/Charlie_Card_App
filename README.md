@@ -1,6 +1,6 @@
 # Charlie_Card_App
 
-Luckily the MBTA doesnt provide a method of tracking your charlie card's balance. This is my app to track the balance on the card and create some usage statistics.
+Frustrated that the MBTA doesn't provide a method of tracking your charlie card's balance? This is my app to track the balance on the card and create some usage statistics.
 
 ## What to run it on?
 
