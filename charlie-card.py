@@ -62,9 +62,11 @@ def get_date_time():
     return date_time
 
 def create_log_entry(date_time,action):
-    f = open('charlie_log.txt','a')
-    f.write(os.linesep)
-    f.write(date_time + ', ' + action)
+    f = open("cc_info.json")
+    data = json.load(f)
+    data.append([date_time,action])
+    json.dump(data,f)
+    f.close()
 
 def summarize_log():
     f = open('charlie_log.txt','r')
@@ -109,11 +111,11 @@ def main(argv):
 
         # Leaving the opt in sytanx in case long arguments are added later
         elif opt in ("-r"):
-            if balance < 2.25:
+            if balance < fare:
                 print("Insufficient Balance!")
                 action = 'error: insufficient balance'
             else:
-                balance = balance - 2.25
+                balance = balance - fare
                 write_to_file(balance,date_time)
                 print_balance(balance)
                 action = 'r'
@@ -121,7 +123,7 @@ def main(argv):
         elif opt in ("-a"):
             try:
                 val = float(arg)
-                balance = balance + float(arg)
+                balance = balance + val
                 write_to_file(balance,date_time)
                 print_balance(balance)
                 action = 'a' + ' ' + arg
@@ -136,7 +138,7 @@ def main(argv):
 
         elif opt in ("-e"):
             write_to_file(float(arg),date_time)
-            action = 'e' + '' + arg
+            action = 'e ' + arg
 
         elif opt in ("-s"):
             summarize_log()
