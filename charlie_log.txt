@@ -55,3 +55,8 @@ Log File for Charlie Card Balance APP
 2019/06/19 | 04:28:15 PM, e25
 2019/06/19 | 04:28:16 PM, e25
 2019/06/19 | 04:28:20 PM, e25
+2019/11/02 | 10:19:50 AM, error: no arguments
+2019/11/02 | 10:30:14 AM, error: no arguments
+2019/11/02 | 10:30:28 AM, error: no arguments
+2019/11/02 | 10:31:07 AM, d
+2019/11/02 | 10:32:07 AM, t

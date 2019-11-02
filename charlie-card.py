@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os,sys,getopt,datetime,json
+from math import floor
 
 # Write val to the charlie card text file
 # Val must be a float
@@ -15,8 +16,10 @@ def print_info():
    print('-h : help')
    print('-r : remove a fare')
    print('-a : # add specified value')
-   print('-d : Diplay current balance')
+   print('-p : Diplay current balance')
    print('-s : Diplay usage statistics')
+   print('-t : Diplay # of remaining trips')
+
 
 def get_data():
    # Get the charlie card value from the text file
@@ -27,7 +30,7 @@ def get_data():
    return balance,info
 
 def print_balance(balance):
-   print("Balance: {}".format(balance))
+   print("Balance: {:.2f}".format(balance))
 
 def add_leading_zero(val):
     if val < 10:
@@ -75,9 +78,16 @@ def summarize_log():
         else:
             print(line)
 
+def trips_left(balance,date_time,fare):
+    trips = floor(balance/fare)
+    print("Trips remaining: {}".format(trips))
+
+#################################################
+##                  MAIN                       ##
+#################################################
 def main(argv):
     # Current charlie card fare
-    fare = 2.25
+    fare = 2.40
 
     # Get current data and time
     date_time = get_date_time()
@@ -88,7 +98,7 @@ def main(argv):
 
     # Try to get the command line arguments
     try:
-        opts, args = getopt.getopt(argv,"hra:de:s")
+        opts, args = getopt.getopt(argv,"hra:pe:st")
 
     except getopt.GetoptError:
         print_info()
@@ -109,11 +119,11 @@ def main(argv):
 
         # Leaving the opt in sytanx in case long arguments are added later
         elif opt in ("-r"):
-            if balance < 2.25:
+            if balance < fare:
                 print("Insufficient Balance!")
                 action = 'error: insufficient balance'
             else:
-                balance = balance - 2.25
+                balance = balance - fare
                 write_to_file(balance,date_time)
                 print_balance(balance)
                 action = 'r'
@@ -129,7 +139,7 @@ def main(argv):
                 print("Float not passed")#, file=sys.stderr)
                 action = 'error: incorrect type'
 
-        elif opt in ("-d"):
+        elif opt in ("-p"):
             print_balance(balance)
             write_to_file(balance,date_time)
             action = 'd'
@@ -141,6 +151,11 @@ def main(argv):
         elif opt in ("-s"):
             summarize_log()
             action = 's'
+            write_to_file(balance,date_time)
+
+        elif opt in ("-t"):
+            trips_left(balance,date_time,fare)
+            action = 't'
             write_to_file(balance,date_time)
 
     create_log_entry(date_time, action)
