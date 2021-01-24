@@ -1,62 +1,19 @@
-Log File for Charlie Card Balance APP
-
-2019/06/11 | 05:27:28 PM, d
-2019/06/11 | 05:27:30 PM, d
-2019/06/11 | 05:27:30 PM, d
-2019/06/11 | 05:27:31 PM, d
-2019/06/11 | 05:27:32 PM, r
-2019/06/11 | 05:27:36 PM, a 5.0
-2019/06/11 | 05:27:43 PM, e15.0
-
-2019/06/12 | 09:51:25 AM, error: no arguments
-2019/06/12 | 09:51:31 AM, error: no arguments
-2019/06/12 | 09:51:33 AM, error: no arguments
-2019/06/12 | 09:53:19 AM, s
-2019/06/12 | 09:53:57 AM, r
-2019/06/12 | 09:53:58 AM, r
-2019/06/12 | 09:54:00 AM, r
-2019/06/12 | 09:54:00 AM, r
-2019/06/12 | 09:54:01 AM, r
-2019/06/12 | 09:54:02 AM, r
-2019/06/12 | 09:54:02 AM, error: insufficient balance
-2019/06/12 | 09:54:04 AM, error: insufficient balance
-2019/06/12 | 09:54:05 AM, error: insufficient balance
-2019/06/12 | 09:54:06 AM, error: insufficient balance
-2019/06/12 | 05:27:39 PM, s
-2019/06/12 | 08:39:40 PM, error: no arguments
-2019/06/12 | 08:39:45 PM, s
-2019/06/12 | 08:49:02 PM, error: no arguments
-2019/06/12 | 08:49:07 PM, d
-2019/06/12 | 08:49:14 PM, e15
-2019/06/12 | 08:50:35 PM, error: no arguments
-2019/06/12 | 09:09:30 PM, error: no arguments
-2019/06/19 | 04:25:13 PM, error: no arguments
-2019/06/19 | 04:25:21 PM, error: no arguments
-2019/06/19 | 04:25:59 PM, d
-2019/06/19 | 04:26:01 PM, d
-2019/06/19 | 04:26:02 PM, d
-2019/06/19 | 04:26:03 PM, d
-2019/06/19 | 04:26:04 PM, d
-2019/06/19 | 04:27:50 PM, d
-2019/06/19 | 04:27:52 PM, d
-2019/06/19 | 04:27:53 PM, d
-2019/06/19 | 04:27:55 PM, d
-2019/06/19 | 04:27:56 PM, d
-2019/06/19 | 04:27:56 PM, d
-2019/06/19 | 04:27:57 PM, d
-2019/06/19 | 04:27:58 PM, d
-2019/06/19 | 04:27:58 PM, d
-2019/06/19 | 04:27:59 PM, d
-2019/06/19 | 04:27:59 PM, d
-2019/06/19 | 04:28:00 PM, d
-2019/06/19 | 04:28:01 PM, d
-2019/06/19 | 04:28:03 PM, r
-2019/06/19 | 04:28:04 PM, r
-2019/06/19 | 04:28:15 PM, e25
-2019/06/19 | 04:28:16 PM, e25
-2019/06/19 | 04:28:20 PM, e25
-2019/11/02 | 10:19:50 AM, error: no arguments
-2019/11/02 | 10:30:14 AM, error: no arguments
-2019/11/02 | 10:30:28 AM, error: no arguments
-2019/11/02 | 10:31:07 AM, d
-2019/11/02 | 10:32:07 AM, t
+[2021-01-23 21:37:43.719147] No arguments passed
+[2021-01-23 21:37:45.006186] No arguments passed
+[2021-01-23 21:37:46.103478] No arguments passed
+[2021-01-23 21:37:51.139472] No arguments passed
+[2021-01-23 21:38:20.486875] Displaying script usage
+[2021-01-23 21:38:21.612763] Displaying script usage
+[2021-01-23 21:38:24.384358] Displaying script usage
+[2021-01-23 21:38:28.584558] Took a trip
+[2021-01-23 21:38:35.409118] Checked balance
+[2021-01-23 21:38:35.409118] Added to balance: 5.0
+[2021-01-23 21:40:02.116559] Added to balance: 5.0
+[2021-01-23 21:40:27.739204] Added to balance: 5.0
+[2021-01-23 21:40:27.739204] Checked balance
+[2021-01-23 21:40:40.055020] Added to balance: 5.0
+[2021-01-23 21:40:40.055020] Checking balance
+[2021-01-23 21:40:45.654508] Displaying script usage
+[2021-01-23 21:40:51.247502] Checking balance
+[2021-01-23 21:40:58.709070] Analyzing charlie card usage
+[2021-01-23 21:41:02.771554] Checked trips left

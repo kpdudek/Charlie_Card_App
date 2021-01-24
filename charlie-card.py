@@ -23,6 +23,7 @@ class CharlieCardManager():
         print('-p     : Diplay current balance')
         print('-s     : Diplay usage statistics')
         print('-t     : Diplay number of remaining trips')
+        self.log("Displaying script usage")
 
     def load_data(self):
         '''
@@ -51,6 +52,7 @@ class CharlieCardManager():
         if self.balance == None:
             self.load_data()
         print("Current balance: %.2f"%(self.balance))
+        self.log("Checking balance")
 
     def remove_fare(self):
         '''
@@ -62,18 +64,32 @@ class CharlieCardManager():
             self.balance -= self.fare
             self.last_trip = str(self.date_time)
             print("Remaining balance: %.2f"%(self.balance))
+        self.log(f"Took a trip")
 
     def add_to_balance(self,value):
         self.balance += value
+        self.log(f"Added to balance: {value}")
         self.print_balance()
 
     def edit_balance(self,new_balance):
         self.balance = new_balance
         self.print_balance()
 
+        self.log(f"Set balance to: {self.balance}")
+
     def trips_left(self):
         trips = floor(self.balance/self.fare)
         print(f"Trips remaining: {trips}")
+        self.log('Checking trips left')
+
+    def statistics(self):
+        self.log("Analyzing charlie card usage")
+
+    def log(self,action):
+        fp = open('charlie_card.log','a')
+        line = f"[{self.date_time}] {action}\n"
+        fp.write(line)
+        fp.close()
 
 #################################################
 ##                  MAIN                       ##
@@ -125,7 +141,7 @@ def main(argv):
             ccm.edit_balance(new_balance)
 
         elif opt in ("-s"):
-            pass
+            ccm.statistics()
 
         elif opt in ("-t"):
             ccm.trips_left()
