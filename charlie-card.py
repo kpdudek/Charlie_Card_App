@@ -1,100 +1,86 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import os,sys,getopt,datetime,json
 from math import floor
 
-# Write val to the charlie card text file
-# Val must be a float
-def write_to_file(val,info):
-   f = open('charlie_card.txt','w')
-   f.write(str(val) + os.linesep)
-   f.write(info)
-   f.close
+class CharlieCardManager():
 
-# Print the possible arguments
-def print_info():
-   print('-h : help')
-   print('-r : remove a fare')
-   print('-a : # add specified value')
-   print('-p : Diplay current balance')
-   print('-s : Diplay usage statistics')
-   print('-t : Diplay # of remaining trips')
+    def __init__(self,fare):
+        self.fare = fare
+        self.date_time = datetime.datetime.now()
+        
+        self.balance = None
+        self.last_trip = None
 
+        self.load_data()
 
-def get_data():
-   # Get the charlie card value from the text file
-   f = open('charlie_card.txt','r')
-   balance = float(f.readline())
-   info = f.readline()
-   f.close()
-   return balance,info
+    # Print the possible arguments
+    def print_info(self):
+        print('This script manages your charlie card data. The following actions can be taken:')
+        print('-h     : Print usage')
+        print('-r     : Remove a fare')
+        print('-a {#} : Add specified value')
+        print('-p     : Diplay current balance')
+        print('-s     : Diplay usage statistics')
+        print('-t     : Diplay number of remaining trips')
 
-def print_balance(balance):
-   print("Balance: {:.2f}".format(balance))
+    def load_data(self):
+        '''
+        Get the charlie card value from the text file
+        '''
+        fp = open('charlie_card.json','r')
+        self.charlie_card_data = json.load(fp)
+        self.balance = self.charlie_card_data['balance']
+        self.last_trip = self.charlie_card_data['last_trip']
+        fp.close()
 
-def add_leading_zero(val):
-    if val < 10:
-        val = str("0{}".format(val))
-    return val
+    def save_data(self):
+        '''
+        Write current data state to a json file
+        '''
+        fp = open('charlie_card.json','w')
+        self.charlie_card_data['balance'] = self.balance
+        self.charlie_card_data['last_trip'] = str(self.last_trip)
+        json.dump(self.charlie_card_data,fp)
+        fp.close()
 
-def get_date_time():
-    now = datetime.datetime.now()
+    def print_balance(self):
+        '''
+        Print balance of the charlie card
+        '''
+        if self.balance == None:
+            self.load_data()
+        print("Current balance: %.2f"%(self.balance))
 
-    month = now.month
-    day = now.day
-    hour = now.hour
-    minute = now.minute
-    second = now.second
-
-    if hour > 12:
-       hour = hour - 12
-       label = "PM"
-    elif hour == 12:
-       label = "PM"
-    else:
-       label = "AM"
-
-    hour = add_leading_zero(hour)
-    minute = add_leading_zero(minute)
-    month = add_leading_zero(month)
-    day = add_leading_zero(day)
-    second = add_leading_zero(second)
-
-    date_time = str("{}/{}/{} | {}:{}:{} {}".format(now.year,month,day,hour,minute,second,label))
-    #print(date_time)
-    return date_time
-
-def create_log_entry(date_time,action):
-    f = open('charlie_log.txt','a')
-    f.write(os.linesep)
-    f.write(date_time + ', ' + action)
-
-def summarize_log():
-    f = open('charlie_log.txt','r')
-    while 1:
-        line = f.readline()
-        if line == '':
-            break
+    def remove_fare(self):
+        '''
+        Remove a trip fare from the current charlie card balance
+        '''
+        if self.balance < self.fare:
+            print('Insufficient balance!')
         else:
-            print(line)
+            self.balance -= self.fare
+            self.last_trip = str(self.date_time)
+            print("Remaining balance: %.2f"%(self.balance))
 
-def trips_left(balance,date_time,fare):
-    trips = floor(balance/fare)
-    print("Trips remaining: {}".format(trips))
+    def add_to_balance(self,value):
+        self.balance += value
+        self.print_balance()
+
+    def edit_balance(self,new_balance):
+        self.balance = new_balance
+        self.print_balance()
+
+    def trips_left(self):
+        trips = floor(self.balance/self.fare)
+        print(f"Trips remaining: {trips}")
 
 #################################################
 ##                  MAIN                       ##
 #################################################
 def main(argv):
-    # Current charlie card fare
     fare = 2.40
-
-    # Get current data and time
-    date_time = get_date_time()
-
-    # Get the charlie cards balance from the text file
-    balance,info = get_data()
-    print("Last accessed -- {}".format(info))
+    ccm = CharlieCardManager(fare)
 
     # Try to get the command line arguments
     try:
@@ -104,61 +90,50 @@ def main(argv):
         print_info()
         sys.exit(2)
 
-        # If no arguments are passed, print help
     if len(argv) == 0:
-        print_info()
-        action = 'error: no arguments'
-
+        ccm.print_info()
+        return
+    
     # Take in the arguments
     for opt, arg in opts:
         if opt in ("-h"):
-            print_info()
+            ccm.print_info()
             sys.exit()
-            action = 'h'
-            write_to_file(balance,date_time)
 
         # Leaving the opt in sytanx in case long arguments are added later
         elif opt in ("-r"):
-            if balance < fare:
+            if ccm.balance < fare:
                 print("Insufficient Balance!")
-                action = 'error: insufficient balance'
             else:
-                balance = balance - fare
-                write_to_file(balance,date_time)
-                print_balance(balance)
-                action = 'r'
+                ccm.remove_fare()
 
         elif opt in ("-a"):
             try:
                 val = float(arg)
-                balance = balance + float(arg)
-                write_to_file(balance,date_time)
-                print_balance(balance)
-                action = 'a' + ' ' + arg
+                ccm.add_to_balance(val)
             except:
-                print("Float not passed")#, file=sys.stderr)
-                action = 'error: incorrect type'
+                print('Value entered is not a valid dollar amount!')
 
         elif opt in ("-p"):
-            print_balance(balance)
-            write_to_file(balance,date_time)
-            action = 'd'
+            ccm.print_balance()
 
         elif opt in ("-e"):
-            write_to_file(float(arg),date_time)
-            action = 'e' + '' + arg
+            try:
+                new_balance = float(arg)
+            except:
+                print('Value entered is not a valid dollar amount!')
+            ccm.edit_balance(new_balance)
 
         elif opt in ("-s"):
-            summarize_log()
-            action = 's'
-            write_to_file(balance,date_time)
+            pass
 
         elif opt in ("-t"):
-            trips_left(balance,date_time,fare)
-            action = 't'
-            write_to_file(balance,date_time)
+            ccm.trips_left()
 
-    create_log_entry(date_time, action)
+        ccm.save_data()
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+    try:
+        main(sys.argv[1:])
+    finally:
+        pass
