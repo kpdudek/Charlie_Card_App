@@ -8,7 +8,9 @@ class CharlieCardManager():
     def __init__(self):
         self.fare = 2.40
         self.balance = None
+        self.date_time = None
         self.last_trip = None
+        self.new_entry = None
         self.charlie_card_data = None
         self.load_data()
 
@@ -20,6 +22,7 @@ class CharlieCardManager():
         date_time = datetime.datetime.now()
         line = f"[{date_time}] {message}\n"
         fp.write(line)
+        print(message)
         fp.close()
 
     def print_info(self):
@@ -39,23 +42,23 @@ class CharlieCardManager():
         '''
             Load the Charlie Card data from the database.
         '''
+        self.date_time = datetime.datetime.now()
         fp = open('charlie_card.json','r')
         self.charlie_card_data = json.load(fp)
-        items = list(self.charlie_card_data.keys())
-        self.balance = self.charlie_card_data[items[-1]]['balance']
-        self.last_trip = self.charlie_card_data[items[-1]]['last_trip']
+        trip_dates = list(self.charlie_card_data.keys())
+        self.balance = self.charlie_card_data[trip_dates[-1]]['balance']
+        self.last_trip = datetime.datetime.strptime(trip_dates[-1], "%Y-%m-%d %H:%M:%S.%f")
         fp.close()
 
     def save_data(self):
         '''
             Write the current Charlie Card data to the database.
         '''
-        fp = open('charlie_card.json','w')
-        self.charlie_card_data['balance'] = self.balance
-        self.charlie_card_data['last_trip'] = str(self.last_trip)
-        self.charlie_card_data.update({'balance'})
-        json.dump(self.charlie_card_data,fp)
-        fp.close()
+        if self.new_entry is not None:
+            fp = open('charlie_card.json','w')
+            self.charlie_card_data.update(self.new_entry)
+            json.dump(self.charlie_card_data,fp)
+            fp.close()
 
     def print_balance(self):
         '''
@@ -63,39 +66,44 @@ class CharlieCardManager():
         '''
         if self.balance == None:
             self.load_data()
-        print("Current balance: %.2f"%(self.balance))
-        self.log("Checking balance")
+        self.log("Current balance: %.2f"%(self.balance))
+        self.log(f"Last Trip: {str(self.last_trip.date())}")
 
     def remove_fare(self):
         '''
             Remove a trip fare from the Charlie Card's balance.
         '''
         if self.balance < self.fare:
-            print('Insufficient balance!')
+            self.log('Insufficient balance for trip!')
+            self.print_balance()
         else:
-            self.balance -= self.fare
-            self.last_trip = str(self.date_time)
-            print("Remaining balance: %.2f"%(self.balance))
             self.log(f"Trip fare removed.")
-
+            print(f"Last Trip: {str(self.last_trip.date())}")
+            print("Old balance: %.2f"%(self.balance))
+            self.balance -= self.fare
+            self.new_entry = {str(self.date_time): {"balance": self.balance}}
+            print("New balance: %.2f"%(self.balance))
+            self.trips_left()
+    
     def add_to_balance(self,value):
         self.balance += value
         self.log(f"Added to balance: {value}")
+        self.new_entry = {str(self.date_time): {"balance": self.balance}}
         self.print_balance()
 
     def edit_balance(self,new_balance):
+        self.log(f"Set balance to: {new_balance}")
         self.balance = new_balance
+        self.new_entry = {str(self.date_time): {"balance": self.balance}}
         self.print_balance()
-
-        self.log(f"Set balance to: {self.balance}")
 
     def trips_left(self):
         trips = floor(self.balance/self.fare)
-        print(f"Trips remaining: {trips}")
-        self.log('Checking trips left.')
-
+        self.log(f"Trips remaining: {trips}")
+    
     def statistics(self):
         self.log("Analyzing charlie card usage...")
+        self.print_balance()
 
 #################################################
 ##                  MAIN                       ##
@@ -128,10 +136,7 @@ def main(argv):
             sys.exit()
 
         elif opt in ("-r"):
-            if ccm.balance < fare:
-                print("Insufficient Balance!")
-            else:
-                ccm.remove_fare()
+            ccm.remove_fare()
 
         elif opt in ("-a"):
             try:
@@ -155,8 +160,9 @@ def main(argv):
 
         elif opt in ("-t"):
             ccm.trips_left()
+            ccm.print_balance()
 
-        ccm.save_data()
+    ccm.save_data()
 
 if __name__ == "__main__":
     try:

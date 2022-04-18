@@ -22,3 +22,136 @@
 [2022-04-09 21:23:48.965118] Checking trips left.
 [2022-04-09 21:23:54.951926] Trip fare removed.
 [2022-04-09 21:23:54.951926] Checking trips left.
+[2022-04-18 08:29:42.028016] Checking balance
+[2022-04-18 08:30:55.291593] Checking balance
+[2022-04-18 08:41:45.267838] Checking balance
+[2022-04-18 08:42:05.627521] Checking trips left.
+[2022-04-18 08:42:22.349369] Added to balance: 5.0
+[2022-04-18 08:42:22.349455] Checking balance
+[2022-04-18 08:42:39.667552] Checking balance
+[2022-04-18 08:42:39.667608] Set balance to: 10.0
+[2022-04-18 08:42:46.967473] Analyzing charlie card usage...
+[2022-04-18 08:43:12.317381] Trip fare removed.
+[2022-04-18 08:43:46.408080] Trip fare removed.
+[2022-04-18 08:43:46.408211] Checking balance
+[2022-04-18 08:44:27.615701] Checking trips left.
+[2022-04-18 08:45:15.754081] Checking balance
+[2022-04-18 08:45:15.754142] Trip fare removed.
+[2022-04-18 08:45:15.754212] Checking trips left.
+[2022-04-18 08:46:28.774208] Trip fare removed.
+[2022-04-18 08:46:28.774321] Checking trips left.
+[2022-04-18 08:46:39.564996] Trip fare removed.
+[2022-04-18 08:46:39.565134] Checking trips left.
+[2022-04-18 08:46:59.187774] Trip fare removed.
+[2022-04-18 08:46:59.187890] Checking trips left.
+[2022-04-18 08:47:08.892667] Trip fare removed.
+[2022-04-18 08:47:08.892789] Checking trips left.
+[2022-04-18 08:47:11.452520] Trip fare removed.
+[2022-04-18 08:47:11.452625] Checking trips left.
+[2022-04-18 08:47:12.179910] Trip fare removed.
+[2022-04-18 08:47:12.180020] Checking trips left.
+[2022-04-18 08:47:14.064396] Trip fare removed.
+[2022-04-18 08:47:14.064524] Checking trips left.
+[2022-04-18 08:49:56.734967] Checking balance
+[2022-04-18 08:50:16.977517] Checking balance
+[2022-04-18 08:50:28.667875] Added to balance: 9.6
+[2022-04-18 08:50:28.667984] Checking balance
+[2022-04-18 08:51:21.056859] Added to balance: 9.6
+[2022-04-18 08:51:21.056960] Checking balance
+[2022-04-18 08:54:47.629825] Checking balance
+[2022-04-18 08:55:26.278823] Fetching Charlie Card Data...
+[2022-04-18 08:55:26.278914] Current balance: 1.20
+[2022-04-18 08:55:26.278974] Last Trip: 2022-04-18
+[2022-04-18 08:55:34.603094] Fetching Charlie Card data...
+[2022-04-18 08:55:34.603193] Current balance: 1.20
+[2022-04-18 08:55:34.603275] Last Trip: 2022-04-18
+[2022-04-18 08:55:47.808231] Current balance: 1.20
+[2022-04-18 08:55:47.808304] Last Trip: 2022-04-18
+[2022-04-18 08:55:49.854091] Current balance: 1.20
+[2022-04-18 08:55:49.854178] Last Trip: 2022-04-18
+[2022-04-18 08:55:49.854231] Insufficient balance for trip!
+[2022-04-18 08:56:12.096685] Insufficient balance for trip!
+[2022-04-18 08:56:12.096766] Current balance: 1.20
+[2022-04-18 08:56:12.096831] Last Trip: 2022-04-18
+[2022-04-18 08:56:16.453094] Added to balance: 5.0
+[2022-04-18 08:56:16.453174] Current balance: 6.20
+[2022-04-18 08:56:16.453236] Last Trip: 2022-04-18
+[2022-04-18 08:56:27.076535] Set balance to: 1.2000000000000055
+[2022-04-18 08:56:27.076619] Current balance: 10.00
+[2022-04-18 08:56:27.076675] Last Trip: 2022-04-18
+[2022-04-18 08:56:47.328569] Set balance to: 10.0
+[2022-04-18 08:56:47.328658] Current balance: 10.00
+[2022-04-18 08:56:47.328733] Last Trip: 2022-04-18
+[2022-04-18 08:56:54.830187] Insufficient balance for trip!
+[2022-04-18 08:56:54.830276] Current balance: 1.20
+[2022-04-18 08:56:54.830332] Last Trip: 2022-04-18
+[2022-04-18 08:57:09.200040] Current balance: 1.20
+[2022-04-18 08:57:09.200119] Last Trip: 2022-04-18
+[2022-04-18 08:57:12.578072] Set balance to: 10.0
+[2022-04-18 08:57:12.578156] Current balance: 10.00
+[2022-04-18 08:57:12.578213] Last Trip: 2022-04-18
+[2022-04-18 08:57:25.518117] Current balance: 1.20
+[2022-04-18 08:57:25.518207] Last Trip: 2022-04-18
+[2022-04-18 08:57:50.501351] Set balance to: 10.0
+[2022-04-18 08:57:50.501448] Current balance: 10.00
+[2022-04-18 08:57:50.501512] Last Trip: 2022-04-18
+[2022-04-18 08:57:54.256359] Current balance: 1.20
+[2022-04-18 08:57:54.256462] Last Trip: 2022-04-18
+[2022-04-18 08:58:45.141813] Set balance to: 10.0
+[2022-04-18 08:58:45.142186] Current balance: 10.00
+[2022-04-18 08:58:45.142286] Last Trip: 2022-04-18
+[2022-04-18 08:58:48.540067] Current balance: 10.00
+[2022-04-18 08:58:48.540146] Last Trip: 2022-04-18
+[2022-04-18 08:58:54.761726] Added to balance: 5.0
+[2022-04-18 08:58:54.761811] Current balance: 15.00
+[2022-04-18 08:58:54.761861] Last Trip: 2022-04-18
+[2022-04-18 08:58:58.065481] Current balance: 15.00
+[2022-04-18 08:58:58.065564] Last Trip: 2022-04-18
+[2022-04-18 08:59:01.189212] Trip fare removed.
+[2022-04-18 08:59:01.189341] Trips remaining: 5
+[2022-04-18 08:59:01.195613] Current balance: 12.60
+[2022-04-18 08:59:01.195833] Last Trip: 2022-04-18
+[2022-04-18 08:59:32.193319] Trip fare removed.
+[2022-04-18 08:59:32.193479] Trips remaining: 4
+[2022-04-18 08:59:41.372520] Trip fare removed.
+[2022-04-18 08:59:41.372639] Trips remaining: 3
+[2022-04-18 08:59:42.901505] Trip fare removed.
+[2022-04-18 08:59:42.901625] Trips remaining: 2
+[2022-04-18 08:59:46.868475] Trip fare removed.
+[2022-04-18 08:59:46.868585] Trips remaining: 1
+[2022-04-18 08:59:48.090702] Trip fare removed.
+[2022-04-18 08:59:48.090820] Trips remaining: 0
+[2022-04-18 08:59:49.374607] Insufficient balance for trip!
+[2022-04-18 08:59:49.374686] Current balance: 0.60
+[2022-04-18 08:59:49.374743] Last Trip: 2022-04-18
+[2022-04-18 08:59:50.687182] Insufficient balance for trip!
+[2022-04-18 08:59:50.687265] Current balance: 0.60
+[2022-04-18 08:59:50.687315] Last Trip: 2022-04-18
+[2022-04-18 08:59:51.352037] Insufficient balance for trip!
+[2022-04-18 08:59:51.352115] Current balance: 0.60
+[2022-04-18 08:59:51.352228] Last Trip: 2022-04-18
+[2022-04-18 08:59:51.873600] Insufficient balance for trip!
+[2022-04-18 08:59:51.873679] Current balance: 0.60
+[2022-04-18 08:59:51.873733] Last Trip: 2022-04-18
+[2022-04-18 08:59:55.866672] Added to balance: 2.1
+[2022-04-18 08:59:55.866760] Current balance: 2.70
+[2022-04-18 08:59:55.866814] Last Trip: 2022-04-18
+[2022-04-18 09:00:04.307200] Added to balance: -1.0
+[2022-04-18 09:00:04.307298] Current balance: 1.70
+[2022-04-18 09:00:04.307364] Last Trip: 2022-04-18
+[2022-04-18 09:00:09.337126] Set balance to: 100.0
+[2022-04-18 09:00:09.337220] Current balance: 100.00
+[2022-04-18 09:00:09.337275] Last Trip: 2022-04-18
+[2022-04-18 09:00:12.237848] Current balance: 100.00
+[2022-04-18 09:00:12.237928] Last Trip: 2022-04-18
+[2022-04-18 09:00:14.847865] Trips remaining: 41
+[2022-04-18 09:00:14.847948] Current balance: 100.00
+[2022-04-18 09:00:14.848004] Last Trip: 2022-04-18
+[2022-04-18 09:00:17.962992] Trip fare removed.
+[2022-04-18 09:00:17.963126] Trips remaining: 40
+[2022-04-18 09:00:19.385182] Trip fare removed.
+[2022-04-18 09:00:19.385314] Trips remaining: 39
+[2022-04-18 09:00:21.869841] Trip fare removed.
+[2022-04-18 09:00:21.869960] Trips remaining: 38
+[2022-04-18 09:00:21.870015] Trip fare removed.
+[2022-04-18 09:00:21.870099] Trips remaining: 37
